@@ -6,7 +6,7 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/05/18 03:34:34 by keulee           ###   ########.fr        #
+#    Updated: 2021/05/18 18:19:34 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,8 @@ LIBFT = libft.a
 
 RM = rm -f
 
+BMP = screenshot.bmp
+
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(MINILIB) 
@@ -62,6 +64,7 @@ clean:
 fclean: clean
 	$(MAKE) -C libft fclean
 	$(RM) $(NAME) $(MINILIB) $(LIBFT)
+	$(RM) $(BMP)
 
 re: fclean all
 

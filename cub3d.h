@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 18:18:57 by keulee            #+#    #+#             */
-/*   Updated: 2021/05/18 15:43:09 by keulee           ###   ########.fr       */
+/*   Updated: 2021/05/18 18:19:25 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include "libft/libft.h"
 
 # define TITLE					"CUB3D"
-# define BMP_NAME				"Cub3d_screenshot.bmp"
+# define BMP_NAME				"screenshot.bmp"
 # define TEX_WIDTH				64
 # define TEX_HEIGHT				64
 
