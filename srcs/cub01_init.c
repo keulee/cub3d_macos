@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub02_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keulee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:27:47 by keulee            #+#    #+#             */
-/*   Updated: 2021/05/18 15:27:49 by keulee           ###   ########.fr       */
+/*   Updated: 2021/05/18 22:25:49 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	all_init(t_game *game)
 	game->mini.map = 0;
 	init_player(game);
 	init_map(game);
+	game->mlx = mlx_init();
 }
 
 void	init_map(t_game *game)
@@ -61,7 +62,6 @@ void	init_player(t_game *game)
 
 void	game_init(t_game *game)
 {
-	game->mlx = mlx_init();
 	malloc_z_buffer(game);
 	malloc_buffer(game);
 	malloc_sprite_utile(game);

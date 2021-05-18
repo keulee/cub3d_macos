@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keulee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:30:05 by keulee            #+#    #+#             */
-/*   Updated: 2021/05/18 15:41:45 by keulee           ###   ########.fr       */
+/*   Updated: 2021/05/18 22:25:32 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		main(int ac, char **av)
 {
 	t_game	game;
 
-	file_validation_check(ac, av, &game);
 	all_init(&game);
+	file_validation_check(ac, av, &game);
 	find_info(&game, av);
 	info_validation_check(&game);
 	read_map(&game, game.info.line);

@@ -6,7 +6,7 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/05/18 18:19:34 by keulee           ###   ########.fr        #
+#    Updated: 2021/05/18 22:28:13 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ SRCS = srcs/cub3d.c \
 		srcs/cub3d_keypress.c srcs/cub3d_set_tex_img.c \
 		srcs/cub3d_render.c srcs/cub3d_player_move.c \
 		srcs/cub3d_bmp_screenshot.c \
-		srcs/cub01_info_validation_check.c \
-		srcs/cub02_init.c \
+		srcs/cub01_init.c \
+		srcs/cub02_info_validation_check.c \
 		srcs/cub03_read_info.c srcs/cub03_parsing_resolution.c srcs/cub03_parsing_color.c \
 		srcs/cub04_read_map.c srcs/cub04_create_player.c \
 		srcs/cub05_map_validation_check.c \
@@ -31,7 +31,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 
 MLX = -L. -lft -L. -lmlx -framework OpenGL -framework AppKit
 
