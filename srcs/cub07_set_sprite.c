@@ -17,13 +17,13 @@ void	translate_sprite(t_game *game, t_player *player, t_s_ray *s_ray, int i)
 	s_ray->x = game->map.sprite[game->map.sprite_order[i]].x - player->x;
 	s_ray->y = game->map.sprite[game->map.sprite_order[i]].y - player->y;
 	s_ray->inv_det = 1.0 / (player->plane_x * player->dir_y
-											- player->dir_x * player->plane_y);
+			- player->dir_x * player->plane_y);
 	s_ray->transform_x = s_ray->inv_det
-				* (player->dir_y * s_ray->x - player->dir_x * s_ray->y);
+		* (player->dir_y * s_ray->x - player->dir_x * s_ray->y);
 	s_ray->transform_y = s_ray->inv_det
-				* (-player->plane_y * s_ray->x + player->plane_x * s_ray->y);
-	s_ray->screen_x = (int)(game->info.win_width / 2)
-				* (1 + s_ray->transform_x / s_ray->transform_y);
+		* (-player->plane_y * s_ray->x + player->plane_x * s_ray->y);
+	s_ray->screen_x = (int)((game->info.win_width / 2) * (1
+				+ s_ray->transform_x / s_ray->transform_y));
 }
 
 void	calculate_sprite_height(t_game *game, t_s_ray *s_ray)

@@ -40,13 +40,15 @@ void	find_map_width_and_height(t_game *game)
 	i = 0;
 	x = 0;
 	len = 0;
-	if (!(game->map.buff = ft_split(game->map.tmp, '\n')))
+	game->map.buff = ft_split(game->map.tmp, '\n');
+	if (!(game->map.buff))
 		error_msg("ERROR: Map split failed");
 	free(game->map.tmp);
 	while (game->map.buff[i])
 	{
 		len = ft_strlen(game->map.buff[i]);
-		(x < len) ? x = len : x;
+		if (x < len)
+			x = len;
 		i++;
 	}
 	game->map.width_count = x;
@@ -60,14 +62,14 @@ void	allocate_map(t_game *game)
 
 	i = 0;
 	find_map_width_and_height(game);
-	if (!(game->map.map = malloc(sizeof(char *)
-											* (game->map.height_count + 1))))
+	game->map.map = malloc(sizeof(char *) * (game->map.height_count + 1));
+	if (!(game->map.map))
 		error_msg("ERROR: Malloc failed");
 	game->map.map[game->map.height_count] = NULL;
 	while (game->map.buff[i])
 	{
-		if (!(game->map.map[i] = malloc(sizeof(char)
-											* (game->map.width_count + 1))))
+		game->map.map[i] = malloc(sizeof(char) * (game->map.width_count + 1));
+		if (!(game->map.map[i]))
 			error_msg("ERROR: Malloc failed");
 		j = 0;
 		while (j < game->map.width_count)

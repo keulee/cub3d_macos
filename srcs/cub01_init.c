@@ -14,7 +14,7 @@
 
 void	all_init(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	game->info.line = NULL;

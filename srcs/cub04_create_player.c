@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int		player_check(char c, char *player)
+int	player_check(char c, char *player)
 {
 	int	i;
 
@@ -65,12 +65,12 @@ void	rotate_player(t_player *player, double rotation_speed)
 
 	old_dir_x = player->dir_x;
 	player->dir_x = player->dir_x * cos(rotation_speed) - player->dir_y
-														* sin(rotation_speed);
+		* sin(rotation_speed);
 	player->dir_y = old_dir_x * sin(rotation_speed) + player->dir_y
-														* cos(rotation_speed);
+		* cos(rotation_speed);
 	old_plane_x = player->plane_x;
 	player->plane_x = player->plane_x * cos(rotation_speed) - player->plane_y
-														* sin(rotation_speed);
+		* sin(rotation_speed);
 	player->plane_y = old_plane_x * sin(rotation_speed) + player->plane_y
-														* cos(rotation_speed);
+		* cos(rotation_speed);
 }

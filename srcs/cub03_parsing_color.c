@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int		store_color(int info, t_game *game, char *line)
+int	store_color(int info, t_game *game, char *line)
 {
 	int		i;
 	int		color;
@@ -21,7 +21,8 @@ int		store_color(int info, t_game *game, char *line)
 	i = 0;
 	color = 0;
 	check_color_line(game, line, &info, &i);
-	if (!(rgb = ft_split(&line[i], ',')))
+	rgb = ft_split(&line[i], ',');
+	if (!rgb)
 		error_msg("ERROR: RGB Split error");
 	i = 0;
 	find_color(line, &i, rgb, &color);
@@ -36,7 +37,7 @@ int		store_color(int info, t_game *game, char *line)
 void	check_color_line(t_game *game, char *line, int *info, int *i)
 {
 	if ((game->info.mark == *info && game->info.floor_color != -1)
-	|| (game->info.mark == *info && game->info.ceiling_color != -1))
+		|| (game->info.mark == *info && game->info.ceiling_color != -1))
 		error_msg("ERROR: Color info doubled");
 	while (ft_uppercase(line[*i]))
 		(*i)++;
@@ -47,7 +48,7 @@ void	check_color_line(t_game *game, char *line, int *info, int *i)
 void	find_color(char *line, int *i, char **rgb, int *color)
 {
 	int	tmp;
-	int j;
+	int	j;
 
 	j = *i;
 	while (*i < 3)

@@ -21,7 +21,7 @@ void	sort_sprite_by_distance(t_map *m, t_player *p)
 	{
 		m->sprite_order[i] = i;
 		m->sprite_dist[i] = ((p->x - m->sprite[i].x) * (p->x - m->sprite[i].x)
-						+ (p->y - m->sprite[i].y) * (p->y - m->sprite[i].y));
+				+ (p->y - m->sprite[i].y) * (p->y - m->sprite[i].y));
 		i++;
 	}
 	sort_sprites(m->sprite_order, m->sprite_dist, m->count_sprite);
@@ -32,7 +32,8 @@ void	sort_sprites(int *sprite_order, double *sprite_dist, int sprite_count)
 	t_pair	*sprites;
 	int		i;
 
-	if (!(sprites = (t_pair *)malloc(sizeof(t_pair) * sprite_count)))
+	sprites = (t_pair *)malloc(sizeof(t_pair) * sprite_count);
+	if (!(sprites))
 		error_msg("ERROR: Array(t_pair) malloc failed");
 	i = 0;
 	while (i < sprite_count)

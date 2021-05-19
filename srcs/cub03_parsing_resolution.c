@@ -12,9 +12,9 @@
 
 #include "../cub3d.h"
 
-int		store_resolution(t_game *game, char *line)
+int	store_resolution(t_game *game, char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (game->info.win_width || game->info.win_height)
@@ -43,7 +43,7 @@ void	find_resolution(t_game *game, char *line, int *i)
 	{
 		while (ft_digit(line[*i]))
 			game->info.win_height = game->info.win_height * 10
-													+ line[(*i)++] - 48;
+				+ line[(*i)++] - 48;
 	}
 	else
 		error_msg("ERROR : Resolution info not corrected");

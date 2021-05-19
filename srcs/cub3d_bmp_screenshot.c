@@ -34,8 +34,8 @@ void	set_bmp_header(t_game *game, int file_size, int fd)
 	unsigned char	bmp_header[54];
 
 	ft_bzero(bmp_header, 54);
-	bmp_header[0] = (unsigned char)'B';
-	bmp_header[1] = (unsigned char)'M';
+	bmp_header[0] = (unsigned char)('B');
+	bmp_header[1] = (unsigned char)('M');
 	int_to_char(bmp_header + 2, file_size);
 	bmp_header[10] = (unsigned char)54;
 	bmp_header[14] = (unsigned char)40;
@@ -56,7 +56,7 @@ void	int_to_char(unsigned char *start, int value)
 
 void	write_bmp_data(t_game *game, int fd)
 {
-	const unsigned char zero[3] = {0, 0, 0};
+	const unsigned char	zero[3] = {0, 0, 0};
 	int					i;
 	int					j;
 	int					pad;

@@ -14,7 +14,7 @@
 
 void	find_info(t_game *game, char **av)
 {
-	char *line;
+	char	*line;
 
 	game->fd = open(av[1], O_RDONLY);
 	if (game->fd < 0)
@@ -22,10 +22,10 @@ void	find_info(t_game *game, char **av)
 	while ((get_next_line(game->fd, &line)) > 0)
 	{
 		if ((line[0] == '\0' || empty_line_check(line) == 1)
-									&& game->info.mark != MAP)
+			&& game->info.mark != MAP)
 		{
 			free(line);
-			continue;
+			continue ;
 		}
 		game->info.mark = find_and_store_info(game, line);
 		if (game->info.mark == -1)
@@ -37,7 +37,7 @@ void	find_info(t_game *game, char **av)
 	game->info.line = line;
 }
 
-int		find_and_store_info(t_game *game, char *line)
+int	find_and_store_info(t_game *game, char *line)
 {
 	if (line[0] == 'R' && line[1] == ' ')
 		return (store_resolution(game, line));
@@ -60,10 +60,10 @@ int		find_and_store_info(t_game *game, char *line)
 	return (-1);
 }
 
-int		store_texture(int texture, t_game *game, char *line)
+int	store_texture(int texture, t_game *game, char *line)
 {
-	int i;
-	int fd_tex;
+	int	i;
+	int	fd_tex;
 
 	i = 0;
 	fd_tex = 0;

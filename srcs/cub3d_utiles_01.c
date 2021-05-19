@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int		ft_exit_key(t_game *game)
+int	ft_exit_key(t_game *game)
 {
 	(void)game;
 	exit_msg("CUB3D CLOSED, BYE!");

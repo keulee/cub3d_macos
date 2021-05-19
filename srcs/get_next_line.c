@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int			ft_line(char *str, char **line, int ret)
+int	ft_line(char *str, char **line, int ret)
 {
 	int		i;
 
@@ -37,7 +37,7 @@ int			ft_line(char *str, char **line, int ret)
 	return (1);
 }
 
-char		*ft_rest(char *str)
+char	*ft_rest(char *str)
 {
 	int		i;
 	int		str_len;
@@ -59,13 +59,15 @@ char		*ft_rest(char *str)
 	return (str);
 }
 
-char		*ft_read_line(char *str, int fd, int *ret)
+char	*ft_read_line(char *str, int fd, int *ret)
 {
 	char	buf[BUFFER_SIZE + 1];
 	char	*tmp;
 
-	while ((*ret = read(fd, buf, BUFFER_SIZE)) > 0)
+	*ret = 1;
+	while (*ret > 0)
 	{
+		*ret = read(fd, buf, BUFFER_SIZE);
 		buf[*ret] = '\0';
 		if (str == NULL)
 			str = ft_strdup(buf);
@@ -81,7 +83,7 @@ char		*ft_read_line(char *str, int fd, int *ret)
 	return (str);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int				ret;
 	static char		*str;

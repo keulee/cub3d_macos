@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int		ft_keypress(int key, t_game *game)
+int	ft_keypress(int key, t_game *game)
 {
 	if (key == KEY_ESC)
 		exit_msg("CUB3D CLOSED, BYE!");
@@ -39,13 +39,13 @@ void	rotate_right(t_player *player)
 	old_dir_x = player->dir_x;
 	old_plane_x = player->plane_x;
 	player->dir_x = player->dir_x * cos(-player->rotation_speed)
-							- player->dir_y * sin(-player->rotation_speed);
+		- player->dir_y * sin(-player->rotation_speed);
 	player->dir_y = old_dir_x * sin(-player->rotation_speed)
-							+ player->dir_y * cos(-player->rotation_speed);
+		+ player->dir_y * cos(-player->rotation_speed);
 	player->plane_x = player->plane_x * cos(-player->rotation_speed)
-							- player->plane_y * sin(-player->rotation_speed);
+		- player->plane_y * sin(-player->rotation_speed);
 	player->plane_y = old_plane_x * sin(-player->rotation_speed)
-							+ player->plane_y * cos(-player->rotation_speed);
+		+ player->plane_y * cos(-player->rotation_speed);
 }
 
 void	rotate_left(t_player *player)
@@ -56,11 +56,11 @@ void	rotate_left(t_player *player)
 	old_dir_x = player->dir_x;
 	old_plane_x = player->plane_x;
 	player->dir_x = player->dir_x * cos(player->rotation_speed)
-							- player->dir_y * sin(player->rotation_speed);
+		- player->dir_y * sin(player->rotation_speed);
 	player->dir_y = old_dir_x * sin(player->rotation_speed)
-							+ player->dir_y * cos(player->rotation_speed);
+		+ player->dir_y * cos(player->rotation_speed);
 	player->plane_x = player->plane_x * cos(player->rotation_speed)
-							- player->plane_y * sin(player->rotation_speed);
+		- player->plane_y * sin(player->rotation_speed);
 	player->plane_y = old_plane_x * sin(player->rotation_speed)
-							+ player->plane_y * cos(player->rotation_speed);
+		+ player->plane_y * cos(player->rotation_speed);
 }

@@ -12,7 +12,7 @@
 
 #include "../cub3d.h"
 
-int		main_loop(t_game *game)
+int	main_loop(t_game *game)
 {
 	ray_processing(game);
 	sprite_ray_processing(game);
@@ -23,14 +23,14 @@ int		main_loop(t_game *game)
 void	game_set_go(t_game *game)
 {
 	game->win = mlx_new_window(game->mlx, game->info.win_width,
-									game->info.win_height, TITLE);
+			game->info.win_height, TITLE);
 	mlx_hook(game->win, X_EVENT_KEY_PRESS, 0, &ft_keypress, game);
 	mlx_hook(game->win, X_EVENT_KEY_EXIT, 0, &ft_exit_key, game);
 	mlx_loop_hook(game->mlx, &main_loop, game);
 	mlx_loop(game->mlx);
 }
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_game	game;
 

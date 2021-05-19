@@ -38,10 +38,10 @@ void	sprite_draw(t_game *game, t_s_ray *s_ray)
 	{
 		s_ray->tex_x = (int)(256 * (stripe
 					- (-s_ray->width / 2 + s_ray->screen_x))
-											* TEX_WIDTH / s_ray->width) / 256;
+				* TEX_WIDTH / s_ray->width) / 256;
 		if (s_ray->transform_y > 0 && stripe > 0
-				&& stripe < game->info.win_width
-				&& s_ray->transform_y < game->z_buffer[stripe])
+			&& stripe < game->info.win_width
+			&& s_ray->transform_y < game->z_buffer[stripe])
 		{
 			y = s_ray->draw_start_y;
 			sprite_y_line_draw(game, s_ray, &y, &stripe);
@@ -60,7 +60,7 @@ void	sprite_y_line_draw(t_game *game, t_s_ray *s_ray, int *y, int *stripe)
 		d = *y * 256 - game->info.win_height * 128 + s_ray->height * 128;
 		s_ray->tex_y = ((d * TEX_HEIGHT) / s_ray->height) / 256;
 		color = game->info.texture[TEX_SPRITE]
-									[TEX_WIDTH * s_ray->tex_y + s_ray->tex_x];
+		[TEX_WIDTH * s_ray->tex_y + s_ray->tex_x];
 		if ((color & 0x00FFFFFF) != 0)
 			game->buf[*y][*stripe] = color;
 		(*y)++;

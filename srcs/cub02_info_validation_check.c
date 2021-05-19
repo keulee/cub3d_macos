@@ -35,8 +35,8 @@ void	info_validation_check(t_game *game)
 	if (game->info.floor_color == -1 || game->info.ceiling_color == -1)
 		error_msg("ERROR: Color Info missing");
 	if (!game->info.tex_path[TEX_NORTH] || !game->info.tex_path[TEX_SOUTH]
-			|| !game->info.tex_path[TEX_WEST] || !game->info.tex_path[TEX_EAST]
-			|| !game->info.tex_path[TEX_SPRITE])
+		|| !game->info.tex_path[TEX_WEST] || !game->info.tex_path[TEX_EAST]
+		|| !game->info.tex_path[TEX_SPRITE])
 		error_msg("ERROR: Texture Info missing");
 }
 
