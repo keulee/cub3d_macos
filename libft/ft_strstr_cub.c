@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int		ft_strstr_cub(char *str, char *cub)
+int	ft_strstr_cub(char *str, char *cub)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;

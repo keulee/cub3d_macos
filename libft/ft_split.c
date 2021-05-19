@@ -12,80 +12,64 @@
 
 #include "libft.h"
 
-int		ft_tab_count(char const *s, char c)
+size_t	ft_strnum(char *s, char c)
 {
-	int		i;
-	int		count;
-	int		tmp;
+	size_t	i;
+	size_t	num;
+
+	num = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			while (s[i] != c && s[i])
+				i++;
+			num++;
+		}
+		else
+			i++;
+	}
+	return (num);
+}
+
+void	str_malloc_copy(char *s, char c, size_t num, char **res)
+{
+	size_t	x;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
-	count = 0;
-	tmp = 0;
-	if (s == '\0')
-		return (0);
-	while (s[i] != '\0')
+	x = 0;
+	while (s[i] && x < num)
 	{
-		if (s[i] == c)
-			tmp = 0;
-		else if (tmp == 0)
+		len = 0;
+		if (s[i] != c)
 		{
-			tmp = 1;
-			count++;
+			while (s[i + len] != c && s[i + len])
+				len++;
+			res[x] = ft_calloc(sizeof(char), len + 1);
+			if (res[x] == 0)
+				return ;
+			ft_strlcpy(res[x], s + i, len + 1);
+			x++;
 		}
-		i++;
+		i += 1 + len;
 	}
-	return (count);
-}
-
-int		ft_tab_len(char const *s, char c, int i)
-{
-	int		len;
-
-	len = 0;
-	while (s[i] != '\0' && s[i] != c)
-	{
-		i++;
-		len++;
-	}
-	return (len);
-}
-
-char	**ft_tab_free(char const **s, int i)
-{
-	while (i > 0)
-	{
-		i--;
-		free((void *)s[i]);
-	}
-	free(s);
-	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**new;
+	size_t	num;
+	char	**res;
 
-	i = 0;
-	j = 0;
-	if (!(new = (char **)malloc(sizeof(char *) * (ft_tab_count(s, c) + 1))))
-		return (NULL);
-	if (s == NULL)
-		return (NULL);
-	while (s[i] != '\0' && j < ft_tab_count(s, c))
-	{
-		while (s[i] == c)
-			i++;
-		k = 0;
-		if (!(new[j] = (char *)malloc(ft_tab_len(s, c, i) + 1)))
-			return (ft_tab_free((char const **)new, j));
-		while (s[i] != '\0' && s[i] != c)
-			new[j][k++] = s[i++];
-		new[j][k] = '\0';
-		j++;
-	}
-	new[j] = 0;
-	return (new);
+	if (s == 0)
+		return (0);
+	num = ft_strnum((char *)s, c);
+	res = ft_calloc(sizeof(char *), num + 1);
+	if (res == 0)
+		return (0);
+	res[num] = 0;
+	str_malloc_copy((char *)s, c, num, res);
+	return (res);
 }
