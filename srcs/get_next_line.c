@@ -84,7 +84,7 @@ char	*ft_read_line(char *str, int fd, int *ret)
 	return (str);
 }
 
-int get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int				ret;
 	static char		*str;
