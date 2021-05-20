@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub05_map_validation_check.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keulee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:28:51 by keulee            #+#    #+#             */
-/*   Updated: 2021/05/18 15:28:52 by keulee           ###   ########.fr       */
+/*   Updated: 2021/05/21 01:09:54 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	vertical_lines_map_check(t_game *game)
 			while (y < game->map.height_count && game->map.map[y][x] != ' ')
 				y++;
 			if (game->map.map[y - 1][x] != '1')
-				error_msg("ERROR: Missing wall ont the bottom side of the map");
+				error_msg("ERROR: Missing wall on the bottom side of the map");
 		}
 		x++;
 	}
