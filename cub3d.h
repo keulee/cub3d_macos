@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 18:18:57 by keulee            #+#    #+#             */
-/*   Updated: 2021/05/18 18:19:25 by keulee           ###   ########.fr       */
+/*   Updated: 2021/05/20 18:50:56 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@
 # define MAP 					9
 # define SPRITE					10
 
-typedef struct	s_pair{
+typedef struct s_pair{
 	double		first;
 	int			second;
 }				t_pair;
 
-typedef struct	s_sprite{
+typedef struct s_sprite{
 	double		x;
 	double		y;
 }				t_sprite;
 
-typedef struct	s_sprite_ray{
+typedef struct s_sprite_ray{
 	double		x;
 	double		y;
 	double		transform_x;
@@ -84,7 +84,7 @@ typedef struct	s_sprite_ray{
 	double		inv_det;
 }				t_s_ray;
 
-typedef struct	s_ray{
+typedef struct s_ray{
 	double		camera_x;
 	double		dir_x;
 	double		dir_y;
@@ -112,7 +112,7 @@ typedef struct	s_ray{
 	int			endpoint_y;
 }				t_ray;
 
-typedef struct	s_info{
+typedef struct s_info{
 	char		*line;
 	int			mark;
 	int			win_width;
@@ -123,7 +123,7 @@ typedef struct	s_info{
 	int			texture[TEXTURE][TEX_HEIGHT * TEX_WIDTH];
 }				t_info;
 
-typedef struct	s_player {
+typedef struct s_player {
 	double		x;
 	double		y;
 	char		dir;
@@ -135,7 +135,7 @@ typedef struct	s_player {
 	double		rotation_speed;
 }				t_player;
 
-typedef struct	s_img {
+typedef struct s_img {
 	void		*img_ptr;
 	int			*data;
 	int			size_l;
@@ -145,12 +145,12 @@ typedef struct	s_img {
 	int			height;
 }				t_img;
 
-typedef struct	s_minimap{
+typedef struct s_minimap{
 	int			map;
 	int			color;
 }				t_minimap;
 
-typedef struct	s_map{
+typedef struct s_map{
 	char		*tmp;
 	char		**buff;
 	char		**map;
@@ -163,7 +163,7 @@ typedef struct	s_map{
 	int			map_2d;
 }				t_map;
 
-typedef struct	s_game{
+typedef struct s_game{
 	void		*mlx;
 	void		*win;
 	int			fd;
@@ -252,14 +252,14 @@ void			ray_wall_draw(t_game *game, int x);
 */
 void			sort_sprite_by_distance(t_map *m, t_player *p);
 void			sort_sprites(int *sprite_order,
-										double *sprite_dist, int sprite_count);
+					double *sprite_dist, int sprite_count);
 void			sort_sprite_order(t_pair *orders, int sprite_count);
 void			sprite_ray_processing(t_game *game);
 void			sprite_draw(t_game *game, t_s_ray *s_ray);
 void			sprite_y_line_draw(t_game *game, t_s_ray *s_ray, int *y,
-																int *stripe);
+					int *stripe);
 void			translate_sprite(t_game *game, t_player *player,
-														t_s_ray *s_ray, int i);
+					t_s_ray *s_ray, int i);
 void			calculate_sprite_height(t_game *game, t_s_ray *s_ray);
 void			calculate_sprite_width(t_game *game, t_s_ray *s_ray);
 void			init_and_set_sprite(t_game *game);

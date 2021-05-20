@@ -6,7 +6,7 @@
 /*   By: keulee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 15:31:40 by keulee            #+#    #+#             */
-/*   Updated: 2021/05/18 15:31:43 by keulee           ###   ########.fr       */
+/*   Updated: 2021/05/20 18:33:35 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,13 @@ char	*ft_read_line(char *str, int fd, int *ret)
 	char	buf[BUFFER_SIZE + 1];
 	char	*tmp;
 
-	*ret = read(fd, buf, BUFFER_SIZE);
-	buf[*ret] = '\0';
+	*ret = 1;
 	while ((*ret) > 0)
 	{
+		*ret = read(fd, buf, BUFFER_SIZE);
+		if (*ret <= 0)
+			break ;
+		buf[*ret] = '\0';
 		if (str == NULL)
 			str = ft_strdup(buf);
 		else
@@ -78,13 +81,11 @@ char	*ft_read_line(char *str, int fd, int *ret)
 		}
 		if (ft_strchr(str, '\n') == 1)
 			break ;
-		*ret = read(fd, buf, BUFFER_SIZE);
-		buf[*ret] = '\0';
 	}
 	return (str);
 }
 
-int get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int				ret;
 	static char		*str;
